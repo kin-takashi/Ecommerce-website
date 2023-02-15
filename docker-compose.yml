@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+        - '3306:3306'
+    # restart: always
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+    volumes:
+      - ./database/data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:php7.4-fpm
+    # restart: always
+    ports:
+      - 9000:9000
+    environment:
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_USER=${DB_USER}
+      - WORDPRESS_DB_PASSWORD=${DB_PASS}
+      - WORDPRESS_DB_NAME=${DB_NAME}
+      - WORDPRESS_TABLE_PREFIX=${DB_PREFIX}
+    links:
+      - mysql
+    volumes:
+      - ./wordpress:/var/www/html
+
+  nginx:
+    image: nginx:latest
+    ports:
+        - '8000:80'
+    volumes:
+        - ./nginx:/etc/nginx/conf.d
+        - ./logs/nginx:/var/log/nginx
+        - ./wordpress:/var/www/html
+    links:
+        - wordpress
+        - mysql
+    # restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql:db
+    ports:
+      - 8080:80

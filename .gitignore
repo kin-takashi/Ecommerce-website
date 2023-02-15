@@ -1,0 +1,6 @@
+.env
+database/data/*
+logs/apache/*
+logs/nginx/*
+wordpress/wp-config.php
+*.zip
