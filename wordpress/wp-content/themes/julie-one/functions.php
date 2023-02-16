@@ -13,6 +13,12 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 /**
+ * Include libs
+ */
+require get_template_directory() . '/inc/common.php'; 
+require_once( ABSPATH . 'wp-includes/class-wp-rewrite.php' );
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
@@ -99,8 +105,103 @@ function julie_one_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	// Create pages
+	// $initThemFile = get_template_directory() . "/.julie-one.lock";
+	// if (!file_exists($initThemFile)) {
+		julie_create_page( 'Trang chủ', '');
+		julie_create_page( 'Trang chủ 2', '');
+		julie_create_page( 'Trang chủ 3', '');
+		julie_create_page( 'Giới thiệu', '');
+		julie_create_page( 'Liên hệ', '');
+		julie_create_page( 'Tin tức', '');
+		julie_create_page( 'Sản phẩm', '');
+	// 	file_put_contents($initThemFile, 'done');
+	// }
+
+	// Update permalink
+	global $wp_rewrite;
+	$wp_rewrite->set_permalink_structure( '/tin-tuc/%postname%/' );
+	$wp_rewrite->flush_rules();
+
+	// Change home page
+	$homepage = get_page_by_title( 'Trang chủ' );
+	if ( $homepage )
+	{
+		update_option( 'page_on_front', $homepage->ID );
+		update_option( 'show_on_front', 'page' );
+	}
+
+	
 }
 add_action( 'after_setup_theme', 'julie_one_setup' );
+
+function julie_one_setup_menu() {
+	// =================================
+	// Create menu
+	$menuname = 'julie-one-menu-main';
+	$bpmenulocation = 'menu-1';
+	// Does the menu exist already?
+	$menu_exists = wp_get_nav_menu_object( $menuname );
+	
+	// If it doesn't exist, let's create it.
+	if( !$menu_exists){
+		$menu_id = wp_create_nav_menu($menuname);
+
+		// Set up default BuddyPress links and add them to the menu.
+		$parent_item = wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title' =>  __('TRANG CHỦ'),
+				// 'menu-item-classes' => 'home',
+				'menu-item-url' => home_url( '/' ), 
+				'menu-item-status' => 'publish'));
+
+		wp_update_nav_menu_item($menu_id, 0, array(
+			'menu-item-title' =>  __('TRANG CHỦ 2'),
+			'menu-item-url' => home_url( '/trang-chu-2' ), 
+			'menu-item-status' => 'publish', 
+			'menu-item-parent-id' => $parent_item)
+			);
+		wp_update_nav_menu_item($menu_id, 0, array(
+			'menu-item-title' =>  __('TRANG CHỦ 3'),
+			'menu-item-url' => home_url( '/trang-chu-3' ), 
+			'menu-item-status' => 'publish', 
+			'menu-item-parent-id' => $parent_item)
+			);
+
+		wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title' =>  __('GIỚI THIỆU'),
+				// 'menu-item-classes' => 'activity',
+				'menu-item-url' => home_url( '/gioi-thieu' ), 
+				'menu-item-status' => 'publish'));
+
+		wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title' =>  __('SẢN PHẨM'),
+				// 'menu-item-classes' => 'members',
+				'menu-item-url' => home_url( '/san-pham' ), 
+				'menu-item-status' => 'publish'));
+
+		wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title' =>  __('TIN TỨC'),
+				// 'menu-item-classes' => 'groups',
+				'menu-item-url' => home_url( '/tin-tuc' ), 
+				'menu-item-status' => 'publish'));
+
+		wp_update_nav_menu_item($menu_id, 0, array(
+				'menu-item-title' =>  __('LIÊN HỆ'),
+				// 'menu-item-classes' => 'forums',
+				'menu-item-url' => home_url( '/lien-he' ), 
+				'menu-item-status' => 'publish'));
+
+		// Grab the theme locations and assign our newly-created menu
+		// to the BuddyPress menu location.
+		if( !has_nav_menu( $bpmenulocation ) ){
+				$locations = get_theme_mod('nav_menu_locations');
+				$locations[$bpmenulocation] = $menu_id;
+				set_theme_mod( 'nav_menu_locations', $locations );
+		}
+	}
+}
+add_action( 'after_setup_theme', 'julie_one_setup_menu' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -141,7 +242,7 @@ function julie_one_scripts() {
 	wp_enqueue_style( 'julie-one-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'julie-one-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'julie-one-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// wp_enqueue_script( 'julie-one-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -176,3 +277,14 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Hide admin bar of all users
+add_filter('show_admin_bar', '__return_false');
+
+// Add active class to menu items
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+function special_nav_class($classes, $item){
+	if( in_array('current-menu-item', $classes) ){
+		$classes[] = 'active ';
+	}
+	return $classes;
+}

@@ -15,45 +15,65 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
-
+	<!-- Favicon -->
+	<link rel="icon" href="<?php echo get_template_directory_uri();?>/img/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?php echo get_template_directory_uri();?>/img/favicon.ico" type="image/x-icon" />
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+	<!-- All CSS Files -->
+	<!-- Bootstrap css -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/bootstrap.min.css">
+	<!-- Icon Font -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/ionicons.min.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/et-line.css">
+	<!-- Plugins css file -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/plugins.css">
+	<!-- Theme main style -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/style.css">
+	<!-- Responsive css -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/responsive.css">
+	<!-- Modernizr JS -->
+	<script src="<?php echo get_template_directory_uri();?>/js/vendor/modernizr-2.8.3.min.js"></script>
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'julie-one' ); ?></a>
-
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$julie_one_description = get_bloginfo( 'description', 'display' );
-			if ( $julie_one_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $julie_one_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'julie-one' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+<div class="header-section section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <!--Logo-->
+                <div class="float-left">
+                    <a href="corporate-1.html" class="header-logo"><img src="<?php echo get_template_directory_uri();?>/img/logo/logo-dark.png" alt=""></a>
+                </div>
+                <!--Menu-->
+                <div class="float-right">
+                    <!-- <nav class="main-menu multi-page-menu text-black">
+                        <ul>
+                            <li class="active"><a href="/">TRANG CHỦ</a></li>
+                            <li><a href="/gioi-thieu">GIỚI THIỆU</a></li>
+                            <li><a href="/san-pham">SẢN PHẨM</a></li>
+                            <li><a href="/tin-tuc">TIN TỨC</a></li>
+                            <li><a href="/lien-he">LIÊN HỆ</a></li>
+                        </ul>
+                    </nav> -->
+										<?php
+											wp_nav_menu(
+												array(
+													'theme_location'  => 'menu-1',
+													'menu_id'         => 'primary-menu',
+													'container_class' => 'main-menu multi-page-menu text-black',
+													'container'       => 'nav'
+												)
+											);
+										?>
+                </div>
+                <!--Mobile Menu-->
+                <div class="mobile-menu multi-page text-black"></div>
+            </div>
+        </div>
+    </div>
+</div>
