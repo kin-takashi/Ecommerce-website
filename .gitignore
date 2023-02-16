@@ -5,3 +5,5 @@ logs/nginx/*
 wordpress/wp-config.php
 *.zip
 **/*.lock
+wordpress/wp-content/uploads/*
+wordpress/wp-content/uploads/*.*
