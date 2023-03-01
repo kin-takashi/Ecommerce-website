@@ -13,6 +13,11 @@ docker-compse up
     - User: http://127.0.0.1:8000/
     - Admin: http://127.0.0.1:8000/wp-admin/ (admin/Abc@123456)
 
+- Pages:
+  - front-page.php
+  - page-gioi-thieu.php
+  - page-lien-he.php
+
 # Template 
 
 - https://underscores.me/

@@ -2,8 +2,9 @@
 database/data/*
 logs/apache/*
 logs/nginx/*
-wordpress/wp-config.php
 *.zip
 **/*.lock
+wordpress/wp-config.php
 wordpress/wp-content/uploads/*
 wordpress/wp-content/uploads/*.*
+temp
