@@ -1,0 +1,40 @@
+.page-gioi-thieu {
+  #client-say {
+    position: relative;
+    text-align: center;
+
+    &> div {
+      margin-top: -90px;
+      background-color: #f3f3f3;
+      border: 1px solid #959595;
+      padding: 10px;
+    }
+
+    .card-container {
+      display: flex;
+      // flex: 0 0 auto;
+      justify-content: space-around;
+
+      .card {
+        flex: 40%;
+        max-width: 40%;
+        border-top: 3px solid #5596b6;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-gioi-thieu {
+    #client-say {
+      .card-container {
+        flex-direction: column;
+        .card {
+          // flex: 40%;
+          max-width: 90%;
+        }
+      }
+    }
+  }
+  
+}

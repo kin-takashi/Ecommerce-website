@@ -1,0 +1,22 @@
+
+/* Menu */
+#primary-menu {
+  font-size: 15px;
+
+  .nav-link.active {
+    border-bottom: #fff 1px solid;
+  }
+}
+#primary-menu a {
+  color: #000000;
+  text-decoration: none;
+  padding: 2px 0px;
+}
+#primary-menu li {
+  line-height: 26px;
+  margin: 0px 10px;
+}
+#primary-menu .menu-item.current-menu-item {
+  border-bottom: #fff 1px solid;
+}
+
