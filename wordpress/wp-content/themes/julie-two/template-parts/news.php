@@ -2,8 +2,10 @@
    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
    $args = array(
      'post_type' => 'post',
-     'orderby' => array( 'date' => 'DESC' ),
-     'paged' => $paged
+     'paged' => $paged,
+     'posts_per_page' => 5, // Chỉ lấy 5 bài viết
+     'orderby' => 'date', // Sắp xếp theo ngày
+     'order' => 'DESC' // Sắp xếp giảm dần (mới nhất đầu tiên)
    );
    $the_query = new WP_Query( $args );
 ?>
@@ -13,67 +15,35 @@
         <h2 class="text-header" data-aos="fade-right">Tin Tức</h2>
     </div>
 </div>
-<div class="features-box d-flex">
-  <?php if ( $the_query->have_posts() ){
-          while($the_query->have_posts()){
-            $the_query->the_post();?>
-  <div class="feature-item bg-danger" data-aos="flip-up" data-aos-delay="50">
-    <?php echo julie_two_post_thumbnail()?>
-    <a href="<?php the_permalink(); ?>" class="item"><?php echo the_title( '<h4 class="">' , '</h4>' );?></a></span>
-    
-  </div>
-  <?php }} ?>
-</div>
-    <!--<div class="features-box d-flex">
-    <?php 
-      //if ( $the_query->have_posts() ){
-        //while($the_query->have_posts()){
-          //$the_query->the_post();?>
-
-          <div class="card" style="width: 18rem; border:none;">
-  <img class="card-img-top" alt="..." src="<?php
-            //julie_two_post_thumbnail();
-          ?>" >
-  <div class="card-body">
-    <a class="card-text" href=<?php //đường link đến trang chi tiết của tin tức đó
-                    //the_permalink(); ?>>
-                  <?php
-                  //Lấy và hiện tên tiêu đề tin tức 
-                    //the_title( '<h4 class="">' , '</h4>' ); }}?></a>
-  </div>-->
-</div>
+<div class="features-box d-flex" >
+  <?php 
+  if ($the_query->have_posts()) {
+    while ($the_query->have_posts()) {
+      $the_query->the_post(); 
       
+      ?>
+      <?php if(has_post_thumbnail()):?>
+      <div class="feature-item image-wrapper" data-aos="flip-up" data-aos-delay="50" style="background-color:#ffffff">
+        <?php echo julie_two_post_thumbnail() ?>
+        <a href="<?php the_permalink(); ?>" class="item"><?php echo the_title('<h4 class="">', '</h4>'); ?></a>
       </div>
-    </div>
-</div>
-  
-    
-  </div>
-    <!--
-    <//?php if ( $the_query->have_posts() ) {
-            while ( $the_query->have_posts() ) {?>
-    <div class="feature-item" data-aos="flip-up" data-aos-delay="50" style="background-color: #ffffff;">
-        <div><a href="" ><img src="<?php  // The Loop
-              //$the_query->the_post();
-              //if(has_post_thumbnail()):
-                //julie_two_post_thumbnail();
-              //else: 
-                //?>" /></a></div>
-          <div class="post-thumbnail">
-            <img src="" alt="SITE LOGO" />
-          </div>
-          <?//php endif;?>
-          <span><a href="" class="item"><//?php the_title( '<h4 class="entry-title">' , '</h4>' ); ?></a></span>
-          <//?php //}}/*?>
+      <?php 
+      else: ?>
+        <div class="feature-item image-wrapper" data-aos="flip-up" data-aos-delay="50" style="background-color:#ffffff">
+          <img src="" alt="SITE LOGO" />
+          <a href="<?php the_permalink(); ?>" class="item"><?php echo the_title('<h4 class="">', '</h4>'); ?></a>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-    </div>-->
-
+        <?php endif;
+    }
+  } ?>
+  
+</div>
+<div class="row ">
+    <div class="col-sm-12 col-lg-12 col-md-12 btn-gioithieu">
+      <a href="/tin-tuc" class="btn btn-default btn-border "><b>TÌM HIỂU THÊM</b></a>
+    </div>
   </div>
+
+      
+
+  

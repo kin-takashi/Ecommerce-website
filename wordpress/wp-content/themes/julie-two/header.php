@@ -19,7 +19,7 @@
 	<script src="https://kit.fontawesome.com/5d9d3005c9.js" crossorigin="anonymous"></script>
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/style_1.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/style.css">
 
 	<?php if (defined('GTAG_CODE')): ?>
 	<!-- Google tag (gtag.js) -->
@@ -70,7 +70,7 @@ $menuItems = [
 
 
 
-	<nav class="navbar navbar-expand-lg navbar navbar-light background">
+	<nav class="navbar navbar-expand-lg navbar navbar-light background fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="/"><h2 style="color: white;"><b>THÁI THỊNH</b></h2></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

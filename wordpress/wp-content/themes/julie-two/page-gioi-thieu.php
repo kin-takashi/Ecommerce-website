@@ -20,7 +20,7 @@ get_header();
 <div class="container py-3">
   <!--<span class="page-header">GIỚI THIỆU</span>-->
   <br/>
-  <div class="row">
+  <div class="row py-5">
     <div class="col-sm-12 col-lg-12 col-md-12 " data-aos="fade-right">
       <hr><h3 class="" >VỀ CHÚNG TÔI</h3>
     </div>
@@ -75,11 +75,6 @@ get_header();
     </div>
   </div>
 </div>
-
-
-
-
-
 <br/>
 
 <?php

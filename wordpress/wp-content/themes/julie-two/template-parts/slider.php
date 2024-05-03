@@ -1,4 +1,4 @@
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide py-5" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="<?php echo get_template_directory_uri();?>/img/slider11.jpg" class="d-block img-size " alt="slider1">

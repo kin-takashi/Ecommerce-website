@@ -99,15 +99,32 @@
 }
 .about-us{
 	p{
-		font-size: 18px;
+		font-size: 19px;
 	}
 }
 .history{
+	border-right: #000 2px solid;
+	&:last-child{
+		border-right: none;
+	}
+	&:first-child{
+		border-right: none;
+	}
 	h3{
 		text-align:center;
 	}
 	p{
 		text-align: left;
-		font-size: 18px;
+		font-size: 21px;
 	}
+}
+
+.footer-logo{
+  justify-content: center;
+  display: flex;
+	flex-direction: row-reverse;
+  img{
+    width: 15rem;
+		height:8rem;
+  }
 }

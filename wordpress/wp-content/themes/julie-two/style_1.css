@@ -375,6 +375,23 @@ body {
   text-decoration: none;
 }
 
+.image-wrapper {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.image-wrapper .post-thumbnail {
+  padding: 5px;
+}
+.image-wrapper .post-thumbnail img {
+  width: 15rem;
+  height: 15rem;
+}
+@media screen and (max-width: 600px) {
+  .image-wrapper .post-thumbnail img {
+    width: 15rem;
+  }
+}
+
 .page-product-list-title {
   display: flex;
   align-items: space-between;
@@ -649,15 +666,34 @@ body {
 }
 
 .about-us p {
-  font-size: 18px;
+  font-size: 19px;
 }
 
+.history {
+  border-right: #000 2px solid;
+}
+.history:last-child {
+  border-right: none;
+}
+.history:first-child {
+  border-right: none;
+}
 .history h3 {
   text-align: center;
 }
 .history p {
   text-align: left;
-  font-size: 18px;
+  font-size: 21px;
+}
+
+.footer-logo {
+  justify-content: center;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.footer-logo img {
+  width: 15rem;
+  height: 8rem;
 }
 
 /*# sourceMappingURL=style_1.css.map */
