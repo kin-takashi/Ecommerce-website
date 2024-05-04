@@ -1,0 +1,40 @@
+/*!
+Theme Name: julie-two-thaithinh
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: vandguard
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+vandguard is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+body{font-size:1em;font-family:Montserrat,sans-serif}
+#header{background-color:#959595;width:100%}
+#header-sub1{padding:3px 0px;font-size:12px;color:#000000}
+#header-sub1 a{color:#000000;text-decoration:none}
+#header-sub1 a:hover{text-decoration:underline}
+#siteLogo{max-width:75px;max-height:75px}
+#header-social a{color:#000000;font-size:20px}
+#header-social a:hover{color:#0d6efd;text-decoration:none}
+#footer{background-color:#F3F3F3;width:100%}
+#footer-1{background-color:#F3F3F3;width:100%;padding:10px 0px}
+#footer-2{background-color:#000;color:#fff;line-height:38px;font-size:16px}
+#footer-2 .container{display:flex;justify-content:space-between}
+#footer-social a{color:#fff;font-size:20px}#footer-links a{margin-left:10px;font-size:22px;color:#000;text-decoration:none}#footer-links a:hover{text-decoration:underline}#footer-links>div{padding:10px 0px}@media (max-width: 480px){#footer-2 .container{flex-direction:column;text-align:center}#footer-info>div{justify-content:center !important}}#img-fanpage{max-width:342px;max-height:266px;padding:5px}#img-logo-footer{max-width:145px;max-height:125px;padding:5px}#primary-menu{font-size:15px}#primary-menu .nav-link.active{border-bottom:#fff 1px solid}#primary-menu a{color:#000000;text-decoration:none;padding:2px 0px}#primary-menu li{line-height:26px;margin:0px 10px}#primary-menu .menu-item.current-menu-item{border-bottom:#fff 1px solid}.text-header{font-size:24px;font-weight:bold}.text-header-2{font-size:24px;margin-bottom:10px}.text-header-2 span{padding:10px}.text-header-2 .child-1{background-color:rgba(111,111,111,0.6);color:#000}.text-header-2 .child-2{padding-left:10px;background-color:#000;color:#fff}.page-header{line-height:48px;font-size:28px;background-color:#000;color:#fff;padding:5px}.page-header-container{border-bottom:5px solid #959595}.page-header-2{font-size:28px;background-color:#959595;color:#fff;padding:5px}.features-box{display:flex;flex-wrap:wrap;flex-direction:row}.features-box .feature-item{flex:20%;padding:40px 20px 60px 20px;text-align:center;background-color:#f3f3f3}.features-box .feature-item span{font-weight:bold;font-size:20px}@media screen and (max-width: 992px){.feature-item{flex:50%}}@media screen and (max-width: 600px){.features-box{flex-direction:column}}.info-box{display:flex;flex-wrap:wrap;flex-direction:row;color:#fff;font-weight:bold}.info-box .info-box-item{flex:33.3%;padding:20px;text-align:center;background-color:#929FB0}.info-box .info-box-item span{font-weight:bold;font-size:20px}.info-box .info-box-item>div{padding:5px 0px}@media screen and (max-width: 992px){.info-box{flex-direction:column}}.text-right{text-align:right}.btn-border{border:1px solid #000}.btn-border:hover{background-color:#f3f3f3;border:1px solid #000}.post-pagination .active>.page-link,.post-pagination .page-link.active{background-color:#FF7900;color:#fff !important;border-color:#fff !important}.post-pagination .page-link{color:#FF7900}.entry-title{color:#FF7900}.post-title-link{color:#FF7900;text-decoration:none}.post-on{display:flex;flex-direction:column;text-align:center}.post-on .post-on-date{color:#000;background-color:#FF7900;font-size:22px;padding:3px}.post-on .post-on-month{color:#fff;background-color:#000;padding:3px}.post-detail-container{display:flex;flex-direction:row;align-items:stretch}.post-detail-container .post-detail-meta{flex:0 0 55px}.post-detail-container .post-detail-content{flex-grow:1;display:block;padding:5px}.byline{text-transform:uppercase}.news-item{border-bottom:1px solid #000;margin-bottom:5px;margin-top:5px}.news-item .post-thumbnail{padding:5px}.news-item .post-thumbnail img{width:100%;height:auto}.link-detail{color:#000}.link-detail:hover{color:#FF7900}@media screen and (max-width: 600px){.news-item .post-thumbnail img{max-width:100%}}.page-product-list-title{display:flex;align-items:space-between}.page-product-list-title--sidebar{flex:0 0 275px;background-color:#000;color:#fff;font-size:28px;padding:5px}.page-product-list-title--sub{flex-grow:1;font-size:28px;background-color:#959595;color:#fff;padding:5px}@media screen and (max-width: 600px){.page-product-list-title{flex-direction:column}.page-product-list-title--sidebar{flex:1}}.page-product-list--container{display:flex;flex-direction:row;align-items:stretch}.page-product-list .page-product-list--item{text-align:center;max-width:315px;flex:25%;margin:10px;border:5px groove #e4e5ea}.page-product-list--sidebar{flex:0 0 275px}.page-product-list--items{flex-grow:1;display:flex;flex-direction:row;flex-wrap:wrap}.page-product-list--item{text-align:center;max-width:315px;flex:33.3%}.page-product-list--item--meta{display:flex;flex-direction:row;align-items:stretch;width:100%}.page-product-list--item--meta .product-meta-1{display:flex;flex-direction:column;flex:1}.page-product-list--item--meta .product-meta-1 span{margin:1px}.page-product-list--item--meta .product-meta-2{background-color:#D9D9D9;flex:1;margin:1px}.page-product-list--item--meta .product-code{font-weight:bolder}.page-product-list--item--meta span{background-color:#D9D9D9}.page-product-list .sidebar-title{color:#fff;background-color:#393939;padding:5px}@media screen and (max-width: 1000px){.page-product-list--item{flex:50%}}@media screen and (max-width: 600px){.page-product-list--item{flex:100%}.page-product-list--item--meta{flex-direction:column}}@media screen and (max-width: 600px){.page-product-list--container{flex-direction:column}.page-product-list--sidebar{flex-grow:1}}.product-category-list{display:flex;flex-direction:column;padding:0px}.product-category-list li{list-style:none;line-height:30px}.product-category-list li a{color:#000}.product-thumbnail{text-decoration:none;text-align:center}.page-lien-he #contact-info{color:#4F4F4F}.page-lien-he #contact-info>div{line-height:28px;vertical-align:middle}.page-lien-he #contact-info i{font-size:28px;margin-right:5px}.page-lien-he #btnSend{width:165px;color:#fff;background-color:#959595}.page-gioi-thieu #client-say{position:relative;text-align:center}.page-gioi-thieu #client-say>div{margin-top:-90px;background-color:#f3f3f3;border:1px solid #959595;padding:10px}.page-gioi-thieu #client-say .card-container{display:flex;justify-content:space-around}.page-gioi-thieu #client-say .card-container .card{flex:40%;max-width:40%;border-top:3px solid #5596b6}@media screen and (max-width: 600px){.page-gioi-thieu #client-say .card-container{flex-direction:column}.page-gioi-thieu #client-say .card-container .card{max-width:90%}}.page-home #box-top{width:70%;position:relative}.page-home #box-top-container{display:flex;flex-wrap:wrap;margin-top:-100px}.page-home #box-top-container .card{flex:33.33%;border-radius:0px}.page-home #box-top-container .card img{width:50%}@media screen and (max-width: 1000px){.page-home #box-top-container .card{flex:50%}}@media screen and (max-width: 600px){.page-home #box-top-container{flex-direction:column}.page-home #box-top-container .card{flex:100%}}
+
+/*# sourceMappingURL=style.css.map */
+

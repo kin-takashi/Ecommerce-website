@@ -1,0 +1,65 @@
+
+/* Footer */
+#footer {
+  background-color: #F3F3F3;
+  width: 100%;
+}
+
+#footer-1 {
+  background-color: #F3F3F3;
+  width: 100%;
+  padding: 10px 0px;
+} 
+
+#footer-2 {
+  background-color: #000;
+  color: #fff;
+  line-height: 38px;
+  font-size: 16px;
+}
+
+#footer-2 .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#footer-social a {
+  color: #fff;
+  font-size: 20px;
+}
+
+#footer-links a {
+  margin-left: 10px;
+  font-size: 22px;
+  color: #000;
+  text-decoration: none;
+}
+
+#footer-links a:hover {
+  text-decoration: underline;
+}
+
+#footer-links > div {
+  padding: 10px 0px;
+}
+
+@media (max-width: 480px) {
+  #footer-2 .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  #footer-info > div {
+    justify-content: center!important;
+  }
+}
+
+#img-fanpage {
+  max-width: 342px;
+  max-height: 266px;
+  padding: 5px;
+}
+#img-logo-footer {
+  max-width: 145px;
+  max-height: 125px;
+  padding: 5px;
+}

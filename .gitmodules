@@ -1,0 +1,3 @@
+[submodule "wordpress/wp-content/themes/julie-two"]
+	path = wordpress/wp-content/themes/julie-two
+	url = git@github.com:Julie-Soft-Web/julie-two.git

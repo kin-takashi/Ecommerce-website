@@ -1,0 +1,21 @@
+.page-lien-he {
+
+  #contact-info {
+    color: #4F4F4F;
+    &> div {
+      line-height: 28px;
+      vertical-align: middle;
+    }
+    i {
+      font-size: 28px;
+      margin-right: 5px;
+    }
+  }
+
+  #btnSend {
+    width: 165px;
+    color: #fff;
+    background-color: #959595;
+  }
+
+}

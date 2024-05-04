@@ -1,0 +1,153 @@
+
+.page-product-list-title {
+  display: flex;
+  align-items: space-between;
+
+  &--sidebar {
+    flex: 0 0 275px;
+    background-color: #fff;
+    color: #000;
+    font-size: 28px;
+    padding: 5px;
+  }
+  &--sub {
+    flex-grow: 1;
+    font-size: 28px;
+    background-color: #959595;
+    color: #fff;
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-product-list-title {
+    flex-direction: column;
+    &--sidebar {
+      flex: 1;
+    }
+  }
+}
+
+
+.page-product-list {
+
+  &--container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .page-product-list--item {
+    text-align: center;
+    max-width: 315px;
+    flex: 25%;
+    margin: 10px;
+    border: 5px groove #e4e5ea;
+  }
+  &--sidebar {
+    flex: 0 0 275px;
+  }
+  &--items {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &--item {
+    text-align: center;
+    max-width: 315px;
+    flex: 33.3%;
+    &--meta {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      width: 100%;
+    
+      .product-meta-1 {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        
+        span {
+          margin: 1px;
+        }
+      }
+
+      .product-meta-2 {
+        background-color: #D9D9D9;
+        flex: 1;
+        margin: 1px;
+      }
+
+      .product-code {
+        font-weight: bolder;
+      }
+
+      span {
+        background-color: #D9D9D9;
+      }
+    }
+  }
+
+  .sidebar-title {
+    color: #fff;
+    background-color: #393939;
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .page-product-list--item {
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-product-list--item {
+    flex: 100%
+  }
+  .page-product-list--item--meta {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+	.page-product-list {
+    
+    &--container {
+      flex-direction: column;
+    }
+
+    &--sidebar {
+      // flex: 1 0 0px;
+      flex-grow: 1;
+    }
+	}
+}
+
+.product-category-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+
+  li {
+    list-style: none;
+    line-height: 30px;
+
+    a {
+      color: #000;
+    }
+  }
+}
+
+.product-thumbnail {
+  text-decoration: none;
+  text-align: center;
+}
+
+
+  
+
+

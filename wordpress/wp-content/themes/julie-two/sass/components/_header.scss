@@ -1,0 +1,36 @@
+/**
+ * Header
+ */
+ #header {
+  background-color: #959595;
+  width: 100%;
+}
+
+#header-sub1 {
+  padding: 3px 0px;
+  font-size: 12px;
+  color: #000000;
+}
+
+#header-sub1 a {
+  color: #000000;
+  text-decoration: none;
+}
+#header-sub1 a:hover {
+  text-decoration: underline;
+}
+
+#siteLogo {
+  max-width: 75px;
+  max-height: 75px;
+}
+
+#header-social a {
+  color: #000000;
+  font-size: 20px;
+}
+
+#header-social a:hover {
+  color: #0d6efd;
+  text-decoration: none;
+}
