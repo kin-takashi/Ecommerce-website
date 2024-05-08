@@ -10,17 +10,7 @@
 	width: 100%;
 	height:640px;
 }
-/*Header*/
-.flex-row{
-	a i{
-		color: #ffffff;
-	}
-}
-.menu{
-	font-size:13.8px;
-	padding-left: 13px;
-	font-weight: bold;
-}
+
 /*Front-page*/
 .text-header{
 	text-align: center;
@@ -37,49 +27,7 @@
   justify-content: center; /* căn giữa theo chiều ngang */
   align-items: center; 
 }
-/*Footer*/
-.footer {
-	p{
-		color: #ffffff;
-		font-size: 18.5px;
-		text-align: left;
-	}
-}
-.footer-lienhe{
-	color: #ffffff;
-	text-align: center;
-}
-.footer-color{
-  p i{
-    color: #ffffff;
-    text-align: left;
-  }
-}
 
-.footer-sanpham{
-	color: white;
-	font-size: 18.5px;
-	text-align: center;
-	text-decoration: none;
-  a:hover{
-    font-size:21px;
-  }
-}
-
-.footer-li{
-	text-align:center;
-	font-size:25px;
-	float: none;
-	list-style: none;
-	display: inline;
-	color: #ffffff;
-  li a{
-    color: #ffffff;
-  }
-  li a:hover{
-    font-size:29px;
-  }
-}
 
 
 /*Slider*/
@@ -87,44 +35,6 @@
 	color: black;
 	text-decoration: none;
 }
-/*Page giới thiệu*/
-.text-tieude{
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
-  text-align: center;
-}
-.img-tieude{
-	width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước của container cha */
-  height: 250px;
-}
-.about-us{
-	p{
-		font-size: 19px;
-	}
-}
-.history{
-	border-right: #000 2px solid;
-	&:last-child{
-		border-right: none;
-	}
-	&:first-child{
-		border-right: none;
-	}
-	h3{
-		text-align:center;
-	}
-	p{
-		text-align: left;
-		font-size: 21px;
-	}
-}
 
-.footer-logo{
-  justify-content: center;
-  display: flex;
-	flex-direction: row-reverse;
-  img{
-    width: 15rem;
-		height:8.1rem;
-  }
-}
+
+

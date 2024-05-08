@@ -14,6 +14,7 @@
 add_filter( 'body_class', function( $classes ) {
 	return array_merge( $classes, array( 'page-gioi-thieu' ) );
 } );
+
 get_header();
 ?>
 
