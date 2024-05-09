@@ -1,0 +1,12 @@
+
+.post-pagination {
+  .active>.page-link, .page-link.active {
+    background-color: $post-date-background;
+    color: #fff!important;
+    border-color: #fff!important;
+  }
+
+  .page-link {
+    color: $post-title-color;
+  }
+}

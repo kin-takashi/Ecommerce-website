@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql:5.7
+    platform: linux/x86_64
+    ports:
+        - '3308:3308'
+    environment:
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=Abc@123456
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+    volumes:
+      - ./database/data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:php7.4-fpm
+    # restart: always
+    ports:
+      - 9000:9000
+    environment:
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_USER=user
+      - WORDPRESS_DB_PASSWORD=Abc@123456
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_TABLE_PREFIX=_wp
+    links:
+      - mysql
+    volumes:
+      - ./wordpress:/var/www/html
+
+  nginx:
+    image: nginx:latest
+    ports:
+        - '8000:80'
+    volumes:
+        - ./nginx:/etc/nginx/conf.d
+        - ./logs/nginx:/var/log/nginx
+        - ./wordpress:/var/www/html
+    links:
+        - wordpress
+        - mysql
+    # restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql:db
+    ports:
+      - 8083:80
