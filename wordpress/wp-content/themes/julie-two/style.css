@@ -22,10 +22,10 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
-@import url("https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 body {
   font-size: 1em;
-  font-family: "Faustina", serif;
+  font-family: Comic Sans, sans-serif;
 }
 
 /**
@@ -64,17 +64,6 @@ body {
 #header-social a:hover {
   color: #0d6efd;
   text-decoration: none;
-}
-
-/*Header*/
-.flex-row a i {
-  color: #ffffff;
-}
-
-.menu {
-  font-size: 13.8px;
-  padding-left: 13px;
-  font-weight: bold;
 }
 
 /* Footer */
@@ -142,58 +131,6 @@ body {
   padding: 5px;
 }
 
-/*Footer*/
-.footer p {
-  color: #ffffff;
-  font-size: 18.5px;
-  text-align: left;
-}
-
-.footer-lienhe {
-  color: #ffffff;
-  text-align: center;
-}
-
-.footer-color p i {
-  color: #ffffff;
-  text-align: left;
-}
-
-.footer-sanpham {
-  color: white;
-  font-size: 18.5px;
-  text-align: center;
-  text-decoration: none;
-}
-.footer-sanpham a:hover {
-  font-size: 21px;
-}
-
-.footer-li {
-  text-align: center;
-  font-size: 25px;
-  float: none;
-  list-style: none;
-  display: inline;
-  color: #ffffff;
-}
-.footer-li li a {
-  color: #ffffff;
-}
-.footer-li li a:hover {
-  font-size: 29px;
-}
-
-.footer-logo {
-  justify-content: center;
-  display: flex;
-  flex-direction: row-reverse;
-}
-.footer-logo img {
-  width: 15rem;
-  height: 8.1rem;
-}
-
 /* Menu */
 #primary-menu {
   font-size: 15px;
@@ -230,8 +167,8 @@ body {
   padding: 10px;
 }
 .text-header-2 .child-1 {
-  background-color: aquamarine;
-  color: aqua;
+  background-color: rgba(111, 111, 111, 0.6);
+  color: #000;
 }
 .text-header-2 .child-2 {
   padding-left: 10px;
@@ -287,32 +224,6 @@ body {
     flex-direction: column;
   }
 }
-.features-box1 {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-.features-box1 .feature-item1 {
-  flex: 20%;
-  padding: 40px 20px 60px 20px;
-  text-align: center;
-  background-color: #f3f3f3;
-}
-.features-box1 .feature-item1 span {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-@media screen and (max-width: 992px) {
-  .feature-item1 {
-    flex: 50%;
-  }
-}
-@media screen and (max-width: 600px) {
-  .features-box1 {
-    flex-direction: column;
-  }
-}
 /**
  * Feature Box
  */
@@ -355,20 +266,20 @@ body {
 }
 
 .post-pagination .active > .page-link, .post-pagination .page-link.active {
-  background-color: black;
+  background-color: #FF7900;
   color: #fff !important;
   border-color: #fff !important;
 }
 .post-pagination .page-link {
-  color: black;
+  color: #FF7900;
 }
 
 .entry-title {
-  color: black;
+  color: #FF7900;
 }
 
 .post-title-link {
-  color: black;
+  color: #FF7900;
   text-decoration: none;
 }
 
@@ -379,7 +290,7 @@ body {
 }
 .post-on .post-on-date {
   color: #000;
-  background-color: black;
+  background-color: #FF7900;
   font-size: 22px;
   padding: 3px;
 }
@@ -416,7 +327,7 @@ body {
   padding: 5px;
 }
 .news-item .post-thumbnail img {
-  width: 100px;
+  width: 100%;
   height: auto;
 }
 
@@ -424,35 +335,17 @@ body {
   color: #000;
 }
 .link-detail:hover {
-  color: black;
+  color: #FF7900;
 }
 
 @media screen and (max-width: 600px) {
   .news-item .post-thumbnail img {
-    width: 100px;
+    max-width: 100%;
   }
 }
-.post-text {
-  color: #000;
-  text-align: center;
-  text-decoration: none;
-}
-
-.image-wrapper {
-  margin-bottom: 5px;
-  margin-top: 5px;
-}
-.image-wrapper .post-thumbnail {
-  padding: 5px;
-}
-.image-wrapper .post-thumbnail img {
-  width: 15rem;
-  height: 15rem;
-}
-@media screen and (max-width: 600px) {
-  .image-wrapper .post-thumbnail img {
-    width: 15rem;
-  }
+.card-img-top {
+  height: 350px;
+  object-fit: cover;
 }
 
 .page-product-list-title {
@@ -623,77 +516,71 @@ body {
     max-width: 90%;
   }
 }
-/*Page giới thiệu*/
-.text-tieude {
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
-  text-align: center;
+.page-home #box-top {
+  width: 70%;
+  position: relative;
 }
-
-.img-tieude {
-  width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước của container cha */
-  height: 250px;
-}
-
-.about-us p {
-  font-size: 19px;
-}
-
-.history {
-  border-right: #000 2px solid;
-}
-.history:last-child {
-  border-right: none;
-}
-.history:first-child {
-  border-right: none;
-}
-.history h3 {
-  text-align: center;
-}
-.history p {
-  text-align: left;
-  font-size: 21px;
-}
-
-.background {
-  background-color: #54BFCD;
-}
-
-.header-font {
-  text-align: center;
-  font-size: 40px;
-}
-
-/*Banner*/
-.img-size {
-  width: 100%;
-  height: 640px;
-}
-
-/*Front-page*/
-.text-header {
-  text-align: center;
-  border: 10px;
-}
-
-.text-gioithieu {
-  text-align: center;
-  font-size: 22px;
-  border: 2px solid black; /* Đường viền đen với độ dày là 2px */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-.btn-gioithieu {
+.page-home #box-top-container {
   display: flex;
-  justify-content: center; /* căn giữa theo chiều ngang */
-  align-items: center;
+  flex-wrap: wrap;
+  margin-top: -100px;
+}
+.page-home #box-top-container .card {
+  flex: 33.33%;
+  border-radius: 0px;
+}
+.page-home #box-top-container .card img {
+  width: 50%;
 }
 
-/*Slider*/
-.item {
-  color: black;
-  text-decoration: none;
+@media screen and (max-width: 1000px) {
+  .page-home #box-top-container .card {
+    flex: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .page-home #box-top-container {
+    flex-direction: column;
+  }
+  .page-home #box-top-container .card {
+    flex: 100%;
+  }
+}
+.custom-input {
+  background-color: #f0f0f0; /* Đổi màu nền */
+  color: #333; /* Đổi màu chữ */
+}
+
+#header-social {
+  position: relative;
+}
+#header-social .fa-cart-shopping {
+  font-size: 24px;
+  color: #333;
+}
+#header-social #cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-product img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 10px;
+}
+
+.img-product {
+  border-radius: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

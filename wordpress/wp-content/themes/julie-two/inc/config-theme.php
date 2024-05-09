@@ -16,6 +16,7 @@ function julie_two_init_data() {
 		julie_create_page( 'Liên hệ', '');
 		julie_create_page( 'Tin tức', '');
 		julie_create_page( 'Sản phẩm', '');
+		julie_create_page( 'Giỏ hàng', '');
 
 		// Update permalink
 		global $wp_rewrite;
@@ -89,6 +90,13 @@ function julie_two_setup_menu() {
 				// 'menu-item-classes' => 'forums',
 				'menu-item-url' => home_url( '/lien-he' ), 
 				'menu-item-status' => 'publish'));
+
+				wp_update_nav_menu_item($menu_id, 0, array(
+					'menu-item-title' =>  __('GIỎ HÀNG'),
+					// 'menu-item-classes' => 'forums',
+					'menu-item-url' => home_url( '/gio-hang' ), 
+					'menu-item-status' => 'publish'));
+	
 
 		// Grab the theme locations and assign our newly-created menu
 		// to the BuddyPress menu location.

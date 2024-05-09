@@ -35,3 +35,4 @@ function julie_two_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'julie_two_pingback_header' );
+

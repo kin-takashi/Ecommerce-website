@@ -14,6 +14,7 @@ $q = get_queried_object();
 <section class="container py-3">
 	<div class="page-product-list-title">
 		<div class="page-product-list-title--sidebar">SẢN PHẨM</div>
+		<div class="page-product-list-title--sub"><?php echo $q->name;?></div>
 	</div>
 	<br/>
   <br/>

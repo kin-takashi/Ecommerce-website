@@ -1,1 +1,1 @@
-# Ecommerce-website
+# Wordpress templates for stores

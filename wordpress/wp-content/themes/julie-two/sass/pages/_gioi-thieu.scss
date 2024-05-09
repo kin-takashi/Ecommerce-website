@@ -2,6 +2,7 @@
   #client-say {
     position: relative;
     text-align: center;
+   
 
     &> div {
       margin-top: -90px;
@@ -37,35 +38,4 @@
     }
   }
   
-}
-/*Page giới thiệu*/
-.text-tieude{
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
-  text-align: center;
-}
-.img-tieude{
-	width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước của container cha */
-  height: 250px;
-}
-.about-us{
-	p{
-		font-size: 19px;
-	}
-}
-.history{
-	border-right: #000 2px solid;
-	&:last-child{
-		border-right: none;
-	}
-	&:first-child{
-		border-right: none;
-	}
-	h3{
-		text-align:center;
-	}
-	p{
-		text-align: left;
-		font-size: 21px;
-	}
 }

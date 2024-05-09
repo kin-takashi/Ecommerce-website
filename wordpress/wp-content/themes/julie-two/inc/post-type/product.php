@@ -23,7 +23,7 @@ function register_custom_post_type_product() {
     'public'                  => true,
     'has_archive'             => true,
     'rewrite'                 => array( 
-                                  'slug' => 'product',
+                                  'slug' => 'san-pham',
                                   'with_front' => false,
                                   'walk_dirs' => false
                                 ), // Here!
@@ -53,7 +53,7 @@ function register_custom_post_type_product() {
   register_taxonomy('product_category', 'product', array (
     'labels'                  => array (
       'name'                  => __( 'Nhóm sản phẩm' ),
-      'menu_name'             => __( 'Nhóm sản phẩm' ),
+      'menu_name'             => __( 'Nhóm' ),
       'edit_item'             => __( 'Sửa nhóm' ),
       'all_items'             => __( 'Nhóm sản phẩm' ),
       'parent_item'           => __( 'Nhóm cha' ),
@@ -74,8 +74,5 @@ function register_custom_post_type_product() {
     'hierarchical'            => true,
     'show_admin_column'       => true,
   ));
-  // Thêm trường hình ảnh vào form thêm danh mục sản phẩm
-  
 }
 add_action ( 'init', 'register_custom_post_type_product' );
-

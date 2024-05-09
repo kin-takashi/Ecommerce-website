@@ -1,0 +1,37 @@
+.custom-input {
+  background-color: #f0f0f0; /* Đổi màu nền */
+  color: #333; /* Đổi màu chữ */
+}
+
+#header-social {
+  position: relative;
+
+  .fa-cart-shopping {
+    font-size: 24px; // Kích thước của icon
+    color: #333; // Màu sắc của icon
+  }
+
+  #cart-count {
+    position: absolute;
+    top: -8px; // Điều chỉnh vị trí theo y để nằm ngay trên icon giỏ hàng
+    right: -8px; // Điều chỉnh vị trí theo x để nằm ngay bên phải icon giỏ hàng
+    background-color: #ff4d4d; // Màu nền của số lượng
+    color: #fff; // Màu chữ của số lượng
+    border-radius: 50%; // Đường viền cong tạo hình tròn
+    width: 20px; // Chiều rộng của số lượng
+    height: 20px; // Chiều cao của số lượng
+    font-size: 12px; // Kích thước chữ của số lượng
+    display: inline-flex; // Hiển thị như một phần tử inline
+    align-items: center; // Căn chỉnh nội dung theo trục dọc
+    justify-content: center; // Căn chỉnh nội dung theo trục ngang
+  }
+}
+.img-product img{
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 10px;
+ 
+}
+.img-product{
+  border-radius: 10px;
+}
