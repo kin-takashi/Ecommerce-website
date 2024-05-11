@@ -11,62 +11,73 @@ get_header();
 ?>
 
 <section class="container">
-  <br />
-  <span class="page-header">TIN TỨC</span>
-  <br />
-  <br />
+	<br/>
+	<span class="page-header">TIN TỨC</span>
+  <br/>
+  <br/>
   <div class="row">
-    <div class="col-md-12">
-      <?php
-      while (have_posts()):
-        the_post();
+		<div class="col-md-12">
+			<?php
+				while ( have_posts() ) :
+					the_post();
 
-        get_template_part('template-parts/content', get_post_type());
+					get_template_part( 'template-parts/content', get_post_type() );
 
+					// the_post_navigation(
+					// 	array(
+					// 		'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'julie-two' ) . '</span> <span class="nav-title">%title</span>',
+					// 		'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'julie-two' ) . '</span> <span class="nav-title">%title</span>',
+					// 	)
+					// );
 
-      endwhile; // End of the loop.
-      ?>
-    </div>
-  </div>
+					// If comments are open or we have at least one comment, load up the comment template.
+					// if ( comments_open() || get_comments_number() ) :
+					// 	comments_template();
+					// endif;
+
+				endwhile; // End of the loop.
+			?>
+		</div>
+	</div>
 </section>
 
 <section class="container py-3">
-  <div class="row">
-    <div class="col-md-6 col-sm-12">
-      <div class="page-header-container">
-        <span class="page-header-2">ĐỪNG BỎ LỠ</span>
-      </div>
-    </div>
-  </div>
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			<div class="page-header-container">
+				<span class="page-header-2">ĐỪNG BỎ LỠ</span>
+			</div>
+		</div>
+	</div>
+	
+  <br/>
+  <br/>
 
-  <br />
-  <br />
-
-  <?php
+  <?php 
   // The Query
-  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+  $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
   $args = array(
     'post_type' => 'post',
-    'orderby' => array('date' => 'DESC'),
+    'orderby' => array( 'date' => 'DESC' ),
     'paged' => $paged
   );
-  $the_query = new WP_Query($args);
+  $the_query = new WP_Query( $args );
 
   // The Loop
-  if ($the_query->have_posts()) {
+  if ( $the_query->have_posts() ) {
     // echo '<div class="row">';
-    while ($the_query->have_posts()) {
+    while ( $the_query->have_posts() ) {
       $the_query->the_post();
       ?>
       <div class="row news-item">
         <div class="col-md-4 col-sm-12">
-          <?php if (has_post_thumbnail()):
+          <?php if(has_post_thumbnail()):
             julie_two_post_thumbnail();
           else: ?>
-            <div class="post-thumbnail">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/default-news-img.png" alt="SITE LOGO" />
-            </div>
-          <?php endif; ?>
+          <div class="post-thumbnail">
+            <img src="<?php echo get_template_directory_uri();?>/img/default-news-img.png" alt="SITE LOGO" />
+          </div>
+          <?php endif;?>
         </div>
         <div class="col-md-8 col-sm-12">
           <div class="post-detail-container">
@@ -96,7 +107,11 @@ get_header();
   }
 
   ?>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> origin/Tran
 </section>
 
 <?php

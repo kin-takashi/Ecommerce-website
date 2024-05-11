@@ -50,8 +50,12 @@ get_header();
 		endif;
 		?>
 
+<<<<<<< HEAD
 	</main>
 	<!-- #main -->
+=======
+	</main><!-- #main -->
+>>>>>>> origin/Tran
 
 <?php
 get_sidebar();

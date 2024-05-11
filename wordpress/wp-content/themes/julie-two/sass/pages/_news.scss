@@ -81,7 +81,7 @@
 
     img {
       // max-width: 360px;
-      width: 100%;
+      width: 100px;
       height: auto;
     }
   }
@@ -99,9 +99,39 @@
     .post-thumbnail {
   
       img {
-        max-width: 100%;
+        width: 100px;
       }
     }
   }
   
 }
+.post-text{
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+}
+
+$image-width: 15rem; // Kích thước mặc định của hình ảnh
+$thumbnail-width: 15rem; // Kích thước của hình ảnh trong media query
+
+.image-wrapper {
+  margin-bottom: 5px;
+  margin-top: 5px;
+
+  .post-thumbnail {
+    padding: 5px;
+
+    img {
+      width: $image-width;
+      height: 15rem; // Bạn có thể sử dụng biến ở đây nếu cần
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .post-thumbnail img {
+      width: $thumbnail-width;
+    }
+  }
+}
+
+

@@ -39,6 +39,7 @@ get_header();
       <div class="row news-item">
         <div class="col-md-4 col-sm-12">
           <?php if(has_post_thumbnail()):
+          //Hiện hình ảnh của bài viết 
             julie_two_post_thumbnail();
           else: ?>
           <div class="post-thumbnail">
@@ -49,14 +50,23 @@ get_header();
         <div class="col-md-8 col-sm-12">
           <div class="post-detail-container">
             <div class="post-detail-meta">
-              <?php julie_two_posted_on(); ?>
+              <?php
+              //lấy và hiện thời gian bài viết được tạo 
+                julie_two_posted_on(); ?>
             </div>
             <div class="post-detail-content">
-              <?php julie_two_posted_by(); ?>
-              <a class="post-title-link" href="<?php the_permalink(); ?>">
-                <?php the_title( '<h4 class="entry-title">' , '</h4>' ); ?>
+              <?php
+              //Lấy và hiện tên người tạo bài viết 
+                julie_two_posted_by(); 
+              ?>
+              <a class="post-title-link" href="<?php //đường link đến trang chi tiết của tin tức đó
+                  the_permalink(); ?>">
+                <?php
+                //Lấy và hiện tên tiêu đề tin tức 
+                  the_title( '<h4 class="entry-title">' , '</h4>' ); ?>
               </a>
-              <?php the_excerpt(); ?>
+              <?php // Nội dung tin tức
+              the_excerpt(); ?>
               <div class="text-right">
                 <a class="link-detail" href="<?php the_permalink(); ?>" aria-hidden="true">Xem thêm...</a>
               </div>

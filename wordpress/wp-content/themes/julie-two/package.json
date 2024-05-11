@@ -47,4 +47,8 @@
     "bundle:unzip": "unzip ./bundle/julie-two-thaithinh.zip -d ./bundle/julie-two-thaithinh",
     "release": "yarn run build && yarn run bundle && yarn run bundle:unzip"
   }
+<<<<<<< HEAD
+=======
+  
+>>>>>>> origin/Tran
 }

@@ -5,9 +5,12 @@
 
   &--sidebar {
     flex: 0 0 275px;
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
+    // line-height: 48px;
     font-size: 28px;
+    // background-color: #000;
+    // color: #fff;
     padding: 5px;
   }
   &--sub {
@@ -35,6 +38,11 @@
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    
+    // .post-detail-meta {
+    //   // width: 50px;
+    //   flex: 0 0 55px;
+    // }
   }
 
   .page-product-list--item {
@@ -44,9 +52,11 @@
     margin: 10px;
     border: 5px groove #e4e5ea;
   }
+
   &--sidebar {
     flex: 0 0 275px;
   }
+
   &--items {
     flex-grow: 1;
     display: flex;
@@ -58,9 +68,12 @@
     text-align: center;
     max-width: 315px;
     flex: 33.3%;
+    // flex: 1;
+
     &--meta {
       display: flex;
       flex-direction: row;
+      // flex-grow: 1;
       align-items: stretch;
       width: 100%;
     
@@ -149,5 +162,6 @@
 
 
   
+
 
 

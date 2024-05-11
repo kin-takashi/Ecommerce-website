@@ -155,8 +155,8 @@ add_action( 'wp_enqueue_scripts', 'julie_two_scripts' );
 
 // function add_style_attributes( $html, $handle ) {
 
-// 	if ( 'bootstrap-style' ==
-// 			return str_replace( "media='all'", "media='all' integrit= $handle ) {y='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'", $html );
+// 	if ( 'bootstrap-style' === $handle ) {
+// 			return str_replace( "media='all'", "media='all' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'", $html );
 // 	}
 
 // 	return $html;
@@ -322,3 +322,68 @@ function save_product_image_gallery_meta_box_data( $post_id ) {
 	}
 }
 add_action( 'save_post_product', 'save_product_image_gallery_meta_box_data' );
+
+add_action('save_post_product', 'save_product_price_meta_data');
+
+
+// Thêm trường tùy chỉnh cho ảnh đại diện của nhóm sản phẩm
+function custom_product_category_fields($tag) {
+	$term_id = $tag->term_id;
+	$group_image = get_term_meta($term_id, 'group_image', true);
+	?>
+	<tr class="form-field">
+			<th scope="row" valign="top"><label for="group_image">Ảnh đại diện nhóm sản phẩm</label></th>
+			<td>
+					<input type="text" name="group_image" id="group_image" class="regular-text" value="<?php echo esc_attr($group_image); ?>">
+					<button class="button button-secondary group-image-upload">Tải lên hoặc chọn ảnh</button>
+					<p class="description">Đường dẫn của ảnh đại diện hiện tại</p>
+					<?php if (!empty($group_image)) : ?>
+							<img src="<?php echo esc_url($group_image); ?>" style="max-width: 200px; height: auto;">
+					<?php endif; ?>
+			</td>
+	</tr>
+	<script>
+			jQuery(document).ready(function($) {
+					// Kiểm tra xem thư viện phương tiện đã được tải chưa
+					if (typeof wp !== 'undefined' && wp.media) {
+							// Upload ảnh
+							$(document).on('click', '.group-image-upload', function(e) {
+									e.preventDefault();
+									var button = $(this);
+									var frame = wp.media({
+											title: 'Chọn hoặc tải lên ảnh',
+											button: {
+													text: 'Chọn ảnh'
+											},
+											multiple: false
+									});
+									frame.on('select', function() {
+											var attachment = frame.state().get('selection').first().toJSON();
+											$('#group_image').val(attachment.url);
+									});
+									frame.open();
+							});
+					} else {
+							console.error('Thư viện phương tiện WordPress chưa được tải.');
+					}
+			});
+	</script>
+	<?php
+}
+add_action('product_category_add_form_fields', 'custom_product_category_fields', 10, 2);
+add_action('product_category_edit_form_fields', 'custom_product_category_fields', 10, 2);
+
+// Lưu dữ liệu trường tùy chỉnh
+function save_custom_product_category_fields($term_id) {
+	if (isset($_POST['group_image'])) {
+			update_term_meta($term_id, 'group_image', sanitize_text_field($_POST['group_image']));
+	}
+}
+// Thêm mã sau vào file functions.php của chủ đề hoặc plugin của bạn
+function load_media_files() {
+	wp_enqueue_media();
+}
+add_action('admin_enqueue_scripts', 'load_media_files');
+
+add_action('edited_product_category', 'save_custom_product_category_fields', 10, 2);
+add_action('create_product_category', 'save_custom_product_category_fields', 10, 2);
