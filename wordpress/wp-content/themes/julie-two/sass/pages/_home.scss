@@ -1,0 +1,46 @@
+.page-home {
+  #box-top {
+    width: 70%;
+    position: relative;
+  }
+
+  #box-top-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -100px;
+
+    .card {
+      flex: 33.33%;
+      border-radius: 0px;
+
+      img {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .page-home {
+    #box-top-container {
+      // flex-direction: column;
+      .card {
+        flex: 50%;
+      }
+    }
+  }
+  
+}
+
+
+@media screen and (max-width: 600px) {
+  .page-home {
+    #box-top-container {
+      flex-direction: column;
+      .card {
+        flex: 100%;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,7 @@
+{
+  "name": "ecomerger",
+  "version": "1.22.22",
+  "description": "world press",
+  "main": "index.js",
+  "license": "MIT"
+}

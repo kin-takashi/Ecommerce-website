@@ -1,0 +1,1 @@
+# Wordpress templates for stores
