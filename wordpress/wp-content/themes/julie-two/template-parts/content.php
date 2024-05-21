@@ -48,6 +48,9 @@
 			)
 		);
 
+					array('span' => array('class' => array(),),)),wp_kses_post( get_the_title() )));
+
+
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'julie-two' ),
@@ -55,9 +58,17 @@
 			)
 		);
 		?>
+
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
 		<?php julie_two_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+
+	</div>
+	<!-- .entry-content -->
+	<footer class="entry-footer">
+		<?php julie_two_entry_footer(); ?>
+	</footer>
+	
 </article><!-- #post-<?php the_ID(); ?> -->

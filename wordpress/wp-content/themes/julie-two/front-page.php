@@ -11,6 +11,7 @@
  *
  * @package julie-two
  */
+
 add_filter('body_class', function ($classes) {
   return array_merge($classes, array ('page-home'));
 });
@@ -38,11 +39,13 @@ get_header();
     </div>
     <div class="d-flex col-3 border">
       Sản xuất hơn 6 triệu đơn vị hàng năm
+
     </div>
   </div>
 </section>
 
 <section class="py-5">
+<<<<<<< HEAD
   <?php get_template_part('template-parts/features');
   ; ?>
 </section>
@@ -54,6 +57,7 @@ get_header();
 
 <br />
 <br />
+
 
 <?php
 // get_sidebar();

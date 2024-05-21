@@ -15,9 +15,13 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
         "php": ">=5.6",
         "google/apiclient": "^2.0",
         "phpmailer/phpmailer": "^6.5"
+=======
+        "php": ">=5.6"
+>>>>>>> origin/hieu
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
@@ -34,5 +38,8 @@
         "issues": "https://github.com/Automattic/_s/issues",
         "source": "https://github.com/Automattic/_s"
     }
+<<<<<<< HEAD
    
+=======
+>>>>>>> origin/hieu
 }

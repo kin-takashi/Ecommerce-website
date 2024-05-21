@@ -4,9 +4,13 @@
     ],
     "env": {
         "browser": true
+<<<<<<< HEAD
     },
     "rules": {
         // Other rules...
         "linebreak-style": "off"
       }
+=======
+    }
+>>>>>>> origin/hieu
 }

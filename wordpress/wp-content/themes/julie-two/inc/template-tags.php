@@ -126,6 +126,7 @@ if ( ! function_exists( 'julie_two_post_thumbnail' ) ) :
 	 * element when on single views.
 	 */
 	function julie_two_post_thumbnail() {
+<<<<<<< HEAD
 			if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 					return;
 			}
@@ -151,6 +152,7 @@ if ( ! function_exists( 'julie_two_post_thumbnail' ) ) :
 endif;
 
 	
+
 
 
 if ( ! function_exists( 'wp_body_open' ) ) :

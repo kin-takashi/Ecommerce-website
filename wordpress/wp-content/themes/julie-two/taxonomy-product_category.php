@@ -13,16 +13,24 @@ $q = get_queried_object();
 
 <section class="container py-3">
 	<div class="page-product-list-title">
+<<<<<<< HEAD
 		<div class="page-product-list-title--sidebar">SẢN PHẨM</div>
 		<div class="page-product-list-title--sub"><?php echo $q->name;?></div>
 	</div>
 	<br/>
   <br/>
+=======
+		<div class="page-product-list-title-sidebar"><?php echo $q->name; ?></div>
+	</div>
+	<br />
+
+>>>>>>> origin/hieu
 </section>
 
 <section class="container py-3 page-product-list">
 	<div class="page-product-list--container">
 		<div class="page-product-list--sidebar">
+<<<<<<< HEAD
 			<?php get_template_part( 'template-parts/sidebar', 'product');;?>
 		</div>
 		<div class="page-product-list--items">
@@ -48,10 +56,26 @@ $q = get_queried_object();
 								)
 							);
 						?>
+=======
+			<?php get_template_part('template-parts/sidebar', 'product');
+			; ?>
+		</div>
+		<div class="page-product-list--items">
+			<?php
+			$count = 0;
+			while (have_posts() && $count <= 5):
+				the_post();
+				$productMeta = get_post_meta(get_the_ID());
+				?>
+				<div class="page-product-list--item">
+					<a class="product-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1" >
+						<?php the_post_thumbnail('product-thumbnail', array('alt' => the_title_attribute(array('echo' => false, )), )); ?>
+>>>>>>> origin/hieu
 					</a>
 					<div class="page-product-list--item--meta">
 						<div class="product-meta-1">
 							<span class="product-code">
+<<<<<<< HEAD
 								<?php 
 									if (count($productMeta["code"]) > 0):
 										echo $productMeta["code"][0];
@@ -63,10 +87,24 @@ $q = get_queried_object();
 									if (count($productMeta["size"]) > 0):
 										echo $productMeta["size"][0];
 									endif; 
+=======
+								<?php
+								if (count($productMeta["code"]) > 0):
+									echo $productMeta["code"][0];
+								endif;
+								?>
+							</span>
+							<span class="product-size">
+								<?php
+								if (count($productMeta["size"]) > 0):
+									echo $productMeta["size"][0];
+								endif;
+>>>>>>> origin/hieu
 								?>
 							</span>
 						</div>
 						<div class="product-meta-2">
+<<<<<<< HEAD
 							<span class="product-name"><?php the_title(); ?></span>
 						</div>
 					</div>
@@ -77,6 +115,16 @@ $q = get_queried_object();
 	</div>
 </section>
 
+=======
+							<span class="product-name"><?php the_title(); ?>1111</span>
+						</div>
+					</div>
+				</div>
+				<?php $count++; endwhile; ?>
+		</div>
+	</div>
+</section>
+>>>>>>> origin/hieu
 <?php
 // get_sidebar();
 get_footer();

@@ -4,49 +4,6 @@ if (!session_id()) {
     session_start();
 }
 
-// Xử lý sự kiện khi người dùng nhấn nút "Mua"
-if (isset($_POST['add_to_cart'])) {
-    // Lấy thông tin sản phẩm từ form
-    $product_id = $_POST['product_id'];
-    $product_name = $_POST['product_name'];
-    $product_price = $_POST['product_price'];
-
-    // Kiểm tra xem giỏ hàng đã được khởi tạo trong session chưa
-    if (!isset($_SESSION['cart'])) {
-        // Nếu chưa, khởi tạo giỏ hàng là một mảng trống
-        $_SESSION['cart'] = array();
-    }
-
-    // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
-    $product_index = -1;
-    foreach ($_SESSION['cart'] as $index => $product) {
-        if ($product['id'] == $product_id) {
-            // Nếu sản phẩm đã tồn tại, tăng số lượng lên 1
-            $_SESSION['cart'][$index]['quantity']++;
-            $product_index = $index;
-            break;
-        }
-    }
-
-    // Nếu sản phẩm không tồn tại trong giỏ hàng, thêm mới
-    if ($product_index === -1) {
-        $product = array(
-            'id' => $product_id,
-            'name' => $product_name,
-            'price' => $product_price,
-            'quantity' => 1 // Số lượng mặc định là 1 khi thêm vào giỏ hàng
-        );
-
-        // Thêm sản phẩm vào giỏ hàng
-        $_SESSION['cart'][] = $product;
-    }
-
-    // Hiển thị thông báo hoặc chuyển hướng đến trang giỏ hàng
-    // (Bạn có thể thực hiện sau)
-}
-?>
-
-<?php
 // Template bắt đầu
 get_header();
 ?>
@@ -55,72 +12,75 @@ get_header();
     <h1 class="page-header">SẢN PHẨM</h1>
 </section>
 
-<section class="container py-3">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Bộ Lọc</h5>
-                    <!-- Form tìm kiếm -->
-                    <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="s" placeholder="Tìm kiếm sản phẩm">
-                            <button class="btn btn-outline-secondary" type="submit">Tìm kiếm</button>
-                        </div>
-                    </form>
-                    <!-- Kết thúc form tìm kiếm -->
-                    <hr>
-                    <!-- Danh sách danh mục hoặc bộ lọc khác -->
-                    <!-- Ví dụ: -->
-                    <h6 class="mb-3">Danh Mục</h6>
-                    <ul class="list-group">
-                        <?php
-                        $args = array(
-                            'taxonomy' => 'product_cat', // Thay 'product_cat' bằng tên của taxonomy bạn muốn hiển thị danh mục
-                            'hide_empty' => false, // Hiển thị cả danh mục không có sản phẩm
-                        );
-                        $categories = get_categories($args);
-                        foreach ($categories as $category) {
-                            echo '<li class="list-group-item"><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
-                        }
-                        ?>
-                    </ul>
-                    <!-- Kết thúc danh sách danh mục -->
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="row">
-                <?php while (have_posts()): ?>
-                    <?php
-                    the_post();
-                    $productMeta = get_post_meta(get_the_ID());
-                    $product_price = get_post_meta(get_the_ID(), '_product_price', true);
-                    ?>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <img src="<?php the_post_thumbnail_url('medium'); ?>" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php the_title(); ?></h5>
-                                <p class="card-text"><?php echo $productMeta["code"][0]; ?> - <?php echo $productMeta["size"][0]; ?></p>
-                                <p class="card-text"><?php echo $product_price; ?></p>
-                            </div>
-                            <div class="card-footer">
-                                <form method="post">
-                                    <input type="hidden" name="product_id" value="<?php the_ID(); ?>">
-                                    <input type="hidden" name="product_name" value="<?php the_title(); ?>">
-                                    <input type="hidden" name="product_price" value="<?php echo $product_price; ?>">
-                                    <button type="submit" name="add_to_cart" class="btn btn-primary btn-block">Mua</button>
-                                    <button ><a href="<?php the_permalink(); ?>">Detail</a></button>
-                                </form>
-                            </div>
+<div class="container">
+    <div class="row ">
+        <!--thanh tim kiem -->
+        <div class="col-3">
+            <section class="container py-3 ">
+                <!-- Sidebar -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="page-product-list--sidebar" style="text-align: center;   ">
+                            <?php get_template_part('template-parts/sidebar', 'product'); ?>
                         </div>
                     </div>
-                <?php endwhile; ?>
-            </div>
+                </div>
+            </section>
+        </div>
+
+        <div class=" col">
+            <section class="container py-3">
+                <!-- Search form -->
+                <div class="row justify-content">
+                    <div class="col">
+                        <form class="form-inline" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+                            <div class="input-group">
+                                <input class="form-control" type="search" name="s" placeholder="Search" aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container py-3">
+                <!-- Product list -->
+                <div class="col ">
+                    <!-- Product items -->
+                    <div class="row">
+                        <!-- Product item -->
+                        <?php while (have_posts()): ?>
+                            <?php
+                            the_post();
+                            $productMeta = get_post_meta(get_the_ID());
+                            $product_price = get_post_meta(get_the_ID(), '_product_price', true);
+                            ?>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="<?php the_post_thumbnail_url('Thumbnails'); ?>" class="card-img-top" style="height: 350px;" alt="<?php the_title(); ?>">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php the_title(); ?></h5>
+                                        <p class="card-text"><?php echo $productMeta["code"][0]; ?> - <?php echo $productMeta["size"][0]; ?></p>
+                                        <p class="card-text">Giá:<?php echo $product_price; ?> VNĐ</p>
+                                        <form method="post">
+                                            <input type="hidden" name="product_id" value="<?php the_ID(); ?>">
+                                            <input type="hidden" name="product_name" value="<?php the_title(); ?>">
+                                            <input type="hidden" name="product_price" value="<?php echo $product_price; ?>">
+                                            <button type="submit" name="add_to_cart" class="btn btn-primary">Mua</button>
+                                        </form>
+                                        <a href="<?php the_permalink(); ?>" class="btn btn-primary">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-</section>
+</div>
 
 <?php
 // Template kết thúc
